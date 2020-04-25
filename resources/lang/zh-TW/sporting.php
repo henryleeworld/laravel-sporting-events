@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'date_from'           => '開始日期',
+    'date_to'             => '結束日期',
+    'select_sport'        => '選擇體育',
+    'select_region'       => '選擇區域',
+    'select_charity'      => '選擇行善',
+    'by'                  => '經由',
+    'sport'               => '體育',
+    'region'              => '區域',
+    'charity'             => '行善',
+    'event_description'   => '活動描述',
+    'start_time'          => '開始時間',
+    'end_time'            => '結束時間',
+    'member_since'        => '會員開始於',
+    'card_image_cap'      => '卡片圖像描述',
+    'sports_events'       => '體育活動',
+    'popular_sports'      => '受歡迎的體育',
+    'all_sports'          => '全部體育',
+    'our_blog'            => '我們部落格',
+    'login'               => '登入',
+    'register'            => '註冊',
+    'manage'              => '管理',
+    'copyright'           => '版權',
+    'all_rights_reserved' => '。版權所有，主題建由 ', 
+    'button' => [
+        'search_now' => '立即搜尋',
+    ],
+];

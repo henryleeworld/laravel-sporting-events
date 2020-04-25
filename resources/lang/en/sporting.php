@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'date_from'           => 'Date from',
+    'date_to'             => 'Date to',
+    'select_sport'        => 'Select sport',
+    'select_region'       => 'Select region',
+    'select_charity'      => 'Select charity',
+    'by'                  => 'By ',
+    'sport'               => 'Sport',
+    'region'              => 'Region',
+    'charity'             => 'Charity',
+    'event_description'   => 'Event Description',
+    'start_time'          => 'Start time',
+    'end_time'            => 'End time',
+    'member_since'        => 'Member Since ',
+    'card_image_cap'      => 'Card image cap',
+    'sports_events'       => 'Sports Events',
+    'popular_sports'      => 'Popular Sports',
+    'all_sports'          => 'All Sports',
+    'our_blog'            => 'Our Blog',
+    'login'               => 'Login',
+    'register'            => 'Register',
+    'manage'              => 'Manage',
+    'copyright'           => 'Copyright',
+    'all_rights_reserved' => '. All Rights Reserved, theme by ', 
+    'button' => [
+        'search_now' => 'Search Now',
+    ],
+];
