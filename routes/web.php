@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomePageController@index')->name('home');
-Route::get('events', 'EventsController@index')->name('events.index');
-Route::get('events/{event:slug}', 'EventsController@show')->name('events.show');
-Route::get('posts/{post:slug}', 'PostsController@show')->name('posts.show');
+Route::get('/', [HomePageController::class, 'index'])->name('home');
+Route::get('events', [EventsController::class, 'index'])->name('events.index');
+Route::get('events/{event:slug}', [EventsController::class, 'show'])->name('events.show');
+Route::get('posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
 
 Route::get('/home', function () {
     $routeName = auth()->user()->is_blog_writer ? 'admin.posts.index' : 'admin.events.index';
@@ -31,7 +34,7 @@ Route::get('/home', function () {
 Auth::routes();
 // Admin
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
@@ -71,7 +74,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('posts', 'PostsController');
 
 });
-Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Http\Controllers\Auth', 'middleware' => ['auth']], function () {
 // Change password
     if (file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php'))) {
         Route::get('password', 'ChangePasswordController@edit')->name('password.edit');
@@ -79,3 +82,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
     }
 
 });
+

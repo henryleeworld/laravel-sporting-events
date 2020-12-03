@@ -1,6 +1,8 @@
 <?php
 
-use App\Charity;
+namespace Database\Seeders;
+
+use App\Models\Charity;
 use Illuminate\Database\Seeder;
 
 class CharitiesTableSeeder extends Seeder

@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Charity;
-use App\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyEventRequest;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
-use App\Region;
-use App\Sport;
+use App\Models\Charity;
+use App\Models\Event;
+use App\Models\Region;
+use App\Models\Sport;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Gate;
 use Illuminate\Http\Request;

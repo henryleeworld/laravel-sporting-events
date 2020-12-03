@@ -1,16 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use DateTimeInterface;
 
-class Role extends Model
+class Sport extends Model
 {
     use SoftDeletes;
 
-    public $table = 'roles';
+    public $table = 'sports';
 
     protected $dates = [
         'created_at',
@@ -19,7 +19,7 @@ class Role extends Model
     ];
 
     protected $fillable = [
-        'title',
+        'name',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -31,9 +31,8 @@ class Role extends Model
 
     }
 
-    public function permissions()
+    public function events()
     {
-        return $this->belongsToMany(Permission::class);
-
+        return $this->hasMany(Event::class);
     }
 }

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Event;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyPostRequest;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use App\Post;
-use App\Sport;
+use App\Models\Event;
+use App\Models\Post;
+use App\Models\Sport;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Gate;
 use Illuminate\Http\Request;

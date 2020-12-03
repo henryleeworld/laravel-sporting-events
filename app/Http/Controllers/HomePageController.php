@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Charity;
-use App\Post;
-use App\Region;
-use App\Sport;
+use App\Models\Charity;
+use App\Models\Post;
+use App\Models\Region;
+use App\Models\Sport;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller

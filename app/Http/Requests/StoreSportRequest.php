@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Sport;
+use App\Models\Sport;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;

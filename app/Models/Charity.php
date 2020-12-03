@@ -1,16 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use DateTimeInterface;
 
-class Region extends Model
+class Charity extends Model
 {
     use SoftDeletes;
 
-    public $table = 'regions';
+    public $table = 'charities';
 
     protected $dates = [
         'created_at',

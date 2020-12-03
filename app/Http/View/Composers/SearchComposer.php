@@ -2,9 +2,9 @@
 
 namespace App\Http\View\Composers;
 
-use App\Charity;
-use App\Region;
-use App\Sport;
+use App\Models\Charity;
+use App\Models\Region;
+use App\Models\Sport;
 use Illuminate\View\View;
 
 class SearchComposer

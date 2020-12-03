@@ -1,16 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Traits\MultiTenantModelTrait;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use DateTimeInterface;
 
 class Event extends Model implements HasMedia
 {

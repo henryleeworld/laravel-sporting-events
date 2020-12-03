@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
-use App\Charity;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCharityRequest;
 use App\Http\Requests\UpdateCharityRequest;
 use App\Http\Resources\Admin\CharityResource;
+use App\Models\Charity;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;

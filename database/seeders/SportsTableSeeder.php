@@ -1,6 +1,8 @@
 <?php
 
-use App\Sport;
+namespace Database\Seeders;
+
+use App\Models\Sport;
 use Illuminate\Database\Seeder;
 
 class SportsTableSeeder extends Seeder
