@@ -5,8 +5,7 @@ namespace App\Models;
 use App\Notifications\VerifyUserNotification;
 use Carbon\Carbon;
 use DateTimeInterface;
-use Hash;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,12 +17,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    public $table = 'users';
-
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',
@@ -37,9 +34,9 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes that should be hidden for serialization.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -47,43 +44,33 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be cast.
      *
-     * @var array
+     * @var array<string, string>
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
-
-    protected $dates = [
-        'updated_at',
-        'created_at',
-        'deleted_at',
-        'email_verified_at',
+        'password' => 'hashed',
     ];
 
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
-
     }
 
     public function getIsAdminAttribute()
     {
         return $this->roles()->where('id', 1)->exists();
-
     }
 
     public function getIsCompanyAttribute()
     {
         return $this->roles()->where('id', 2)->exists();
-
     }
 
     public function getIsBlogWriterAttribute()
     {
         return $this->roles()->where('id', 3)->exists();
-
     }
 
     public function __construct(array $attributes = [])
@@ -95,15 +82,12 @@ class User extends Authenticatable
             if (!$user->roles()->get()->contains($registrationRole)) {
                 $user->roles()->attach($registrationRole);
             }
-
         });
-
     }
 
     public function getEmailVerifiedAtAttribute($value)
     {
         return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
-
     }
 
     public function setEmailVerifiedAtAttribute($value)
@@ -112,23 +96,13 @@ class User extends Authenticatable
 
     }
 
-    public function setPasswordAttribute($input)
-    {
-        if ($input) {
-            $this->attributes['password'] = app('hash')->needsRehash($input) ? Hash::make($input) : $input;
-        }
-
-    }
-
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
-
     }
 
     public function roles()
     {
         return $this->belongsToMany(Role::class);
-
     }
 }

@@ -10,7 +10,7 @@
         <form method="POST" action="{{ route("admin.events.update", [$event->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            <div class="form-group">
+            <div class="mb-3">
                 <label class="required" for="name">{{ trans('cruds.event.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $event->name) }}" required>
                 @if($errors->has('name'))
@@ -20,7 +20,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.name_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="description">{{ trans('cruds.event.fields.description') }}</label>
                 <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description', $event->description) }}</textarea>
                 @if($errors->has('description'))
@@ -30,7 +30,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.description_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label class="required" for="start_time">{{ trans('cruds.event.fields.start_time') }}</label>
                 <input class="form-control datetime {{ $errors->has('start_time') ? 'is-invalid' : '' }}" type="text" name="start_time" id="start_time" value="{{ old('start_time', $event->start_time) }}" required>
                 @if($errors->has('start_time'))
@@ -40,7 +40,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.start_time_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="end_time">{{ trans('cruds.event.fields.end_time') }}</label>
                 <input class="form-control datetime {{ $errors->has('end_time') ? 'is-invalid' : '' }}" type="text" name="end_time" id="end_time" value="{{ old('end_time', $event->end_time) }}">
                 @if($errors->has('end_time'))
@@ -50,7 +50,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.end_time_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="sport_id">{{ trans('cruds.event.fields.sport') }}</label>
                 <select class="form-control select2 {{ $errors->has('sport') ? 'is-invalid' : '' }}" name="sport_id" id="sport_id">
                     @foreach($sports as $id => $sport)
@@ -64,7 +64,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.sport_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="region_id">{{ trans('cruds.event.fields.region') }}</label>
                 <select class="form-control select2 {{ $errors->has('region') ? 'is-invalid' : '' }}" name="region_id" id="region_id">
                     @foreach($regions as $id => $region)
@@ -78,7 +78,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.region_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="charity_id">{{ trans('cruds.event.fields.charity') }}</label>
                 <select class="form-control select2 {{ $errors->has('charity') ? 'is-invalid' : '' }}" name="charity_id" id="charity_id">
                     @foreach($charities as $id => $charity)
@@ -92,7 +92,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.charity_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="photo">{{ trans('cruds.event.fields.photo') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}" id="photo-dropzone">
                 </div>
@@ -103,7 +103,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.photo_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label class="required" for="slug">{{ trans('cruds.event.fields.slug') }}</label>
                 <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', $event->slug) }}" required>
                 @if($errors->has('slug'))
@@ -113,7 +113,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.event.fields.slug_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-0">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

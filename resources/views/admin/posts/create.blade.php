@@ -9,7 +9,7 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.posts.store") }}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
+            <div class="mb-3">
                 <label class="required" for="title">{{ trans('cruds.post.fields.title') }}</label>
                 <input class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" type="text" name="title" id="title" value="{{ old('title', '') }}" required>
                 @if($errors->has('title'))
@@ -19,7 +19,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.post.fields.title_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="full_text">{{ trans('cruds.post.fields.full_text') }}</label>
                 <textarea class="form-control ckeditor {{ $errors->has('full_text') ? 'is-invalid' : '' }}" name="full_text" id="full_text">{!! old('full_text') !!}</textarea>
                 @if($errors->has('full_text'))
@@ -29,7 +29,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.post.fields.full_text_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="sport_id">{{ trans('cruds.post.fields.sport') }}</label>
                 <select class="form-control select2 {{ $errors->has('sport') ? 'is-invalid' : '' }}" name="sport_id" id="sport_id">
                     @foreach($sports as $id => $sport)
@@ -43,7 +43,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.post.fields.sport_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="event_id">{{ trans('cruds.post.fields.event') }}</label>
                 <select class="form-control select2 {{ $errors->has('event') ? 'is-invalid' : '' }}" name="event_id" id="event_id">
                     @foreach($events as $id => $event)
@@ -57,7 +57,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.post.fields.event_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <div class="form-check {{ $errors->has('published') ? 'is-invalid' : '' }}">
                     <input type="hidden" name="published" value="0">
                     <input class="form-check-input" type="checkbox" name="published" id="published" value="1" {{ old('published', 0) == 1 ? 'checked' : '' }}>
@@ -70,7 +70,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.post.fields.published_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="photo">{{ trans('cruds.post.fields.photo') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}" id="photo-dropzone">
                 </div>
@@ -81,7 +81,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.post.fields.photo_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label class="required" for="slug">{{ trans('cruds.post.fields.slug') }}</label>
                 <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}" required>
                 @if($errors->has('slug'))
@@ -91,7 +91,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.post.fields.slug_helper') }}</span>
             </div>
-            <div class="form-group">
+            <div class="mb-0">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

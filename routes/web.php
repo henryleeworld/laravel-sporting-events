@@ -11,11 +11,10 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 Route::get('events', [EventsController::class, 'index'])->name('events.index');
 Route::get('events/{event:slug}', [EventsController::class, 'show'])->name('events.show');
@@ -32,8 +31,8 @@ Route::get('/home', function () {
 });
 
 Auth::routes();
-// Admin
 
+// Admin
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
@@ -80,6 +79,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Htt
         Route::get('password', 'ChangePasswordController@edit')->name('password.edit');
         Route::post('password', 'ChangePasswordController@update')->name('password.update');
     }
-
 });
-

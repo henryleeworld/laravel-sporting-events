@@ -122,7 +122,7 @@ class Event extends Model implements HasMedia
 
     }
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [
